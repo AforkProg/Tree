@@ -122,8 +122,12 @@ public:
 		}
 		if (delRun != nullptr)
 		{
-
-			if (delRun->leftElem == nullptr && delRun->rightElem == nullptr)
+			if (delRun->leftElem == nullptr && delRun->rightElem == nullptr && delRun->prevElem == nullptr)
+			{
+				deleteAllTree();
+				return;
+			}
+			else if (delRun->leftElem == nullptr && delRun->rightElem == nullptr)
 			{
 				if (delRun->prevElem->rightElem == delRun)
 				{
@@ -196,8 +200,6 @@ public:
 						delRun->prevElem->leftElem = delRunLeft;
 					}
 				}
-			
-
 			delete delRun;
 		}
 		else
@@ -229,18 +231,10 @@ int main()
 {
 	
 	claTree kek;
-	kek.addElem(54, 11);
-	kek.addElem(27, 22);
-	kek.addElem(66, 133);
-	kek.addElem(13, 54321);
-	kek.addElem(524, 3241);
-	kek.addElem(6, 1543);
-	kek.findElem(27);
-	kek.findElem(66);
-	kek.findElem(13);
-	kek.findElem(524);
-	kek.findElem(6);
-	kek.findElem(54);
+	kek.addElem(42, 44);
+	kek.findElem(42);
+	kek.deleteElem(42);
+	kek.findElem(42);
 	system("pause");
 	return 0;
 }
